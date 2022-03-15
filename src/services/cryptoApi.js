@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import env from "./../utils/config";
 
@@ -16,7 +16,9 @@ export const cryptoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: env.apiBaseUrl }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: () => createUrl("/exchanges"),
+      query: () => createUrl("/coins"),
     }),
   }),
 });
+
+export const { useGetCryptosQuery } = cryptoApi;
