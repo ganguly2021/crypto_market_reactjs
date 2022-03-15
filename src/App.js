@@ -27,20 +27,21 @@ function App() {
             <Route path="/crypto/:coinId" element={<CryptoDetails />} />
           </Routes>
         </Layout>
-      </div>
-      <div className="footer">
-        <Typography.Title
-          level={5}
-          style={{ color: "white", textAlign: "center" }}
-        >
-          Crypto Market <br />
-          All rights reserved. {new Date().getFullYear()}
-        </Typography.Title>
-        <Space>
-          <Link to="/">Home</Link>
-          <Link to="/exchanges">Exchanges</Link>
-          <Link to="/news">News</Link>
-        </Space>
+
+        <div className="footer">
+          <Typography.Title
+            level={5}
+            style={{ color: "white", textAlign: "center" }}
+          >
+            Crypto Market <br />
+            All rights reserved. {new Date().getFullYear()}
+          </Typography.Title>
+          <Space>
+            <Link to="/">Home</Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
     </div>
   );
