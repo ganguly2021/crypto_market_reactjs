@@ -1,14 +1,14 @@
 import React from "react";
 import { Layout, Typography, Space } from "antd";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
-import { 
+import {
   Navbar,
   News,
   CryptoDetails,
   Cryptocurrencies,
   Homepage,
-  Exchanges
+  Exchanges,
 } from "./components";
 
 function App() {
@@ -28,7 +28,20 @@ function App() {
           </Routes>
         </Layout>
       </div>
-      <div className="footer"></div>
+      <div className="footer">
+        <Typography.Title
+          level={5}
+          style={{ color: "white", textAlign: "center" }}
+        >
+          Crypto Market <br />
+          All rights reserved. {new Date().getFullYear()}
+        </Typography.Title>
+        <Space>
+          <Link to="/">Home</Link>
+          <Link to="/exchanges">Exchanges</Link>
+          <Link to="/news">News</Link>
+        </Space>
+      </div>
     </div>
   );
 }
