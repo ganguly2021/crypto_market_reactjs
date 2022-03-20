@@ -19,22 +19,24 @@ function App() {
       </div>
       <div className="main">
         <Layout>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
-            <Route path="/exchanges" element={<Exchanges />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/crypto/:coinId" element={<CryptoDetails />} />
-          </Routes>
+          <div className="routes">
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+              <Route path="/exchanges" element={<Exchanges />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/crypto/:coinId" element={<CryptoDetails />} />
+            </Routes>
+          </div>
         </Layout>
-
         <div className="footer">
           <Typography.Title
             level={5}
             style={{ color: "white", textAlign: "center" }}
           >
-            Crypto Market <br />
-            All rights reserved. {new Date().getFullYear()}
+            Copyright © 2021
+            <Link to="/">Cryptoverse Inc.</Link> <br />
+            All Rights Reserved.
           </Typography.Title>
           <Space>
             <Link to="/">Home</Link>
