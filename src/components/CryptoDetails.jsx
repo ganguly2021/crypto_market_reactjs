@@ -3,6 +3,7 @@ import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Typography, Select } from "antd";
+import { LineChart } from "./../components";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -15,7 +16,10 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 
-import { useGetCryptoDetailsQuery } from "./../services/cryptoApi";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} from "./../services/cryptoApi";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -25,6 +29,10 @@ const CryptoDetails = () => {
   const [timePeriod, setTimePeriod] = useState("7d");
 
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId,
+    timePeriod,
+  });
 
   const cryptoDetails = data?.data?.coin;
 
@@ -103,7 +111,6 @@ const CryptoDetails = () => {
     },
   ];
 
-  console.log(data);
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
@@ -128,6 +135,11 @@ const CryptoDetails = () => {
         ))}
       </Select>
       {/* Line Chart */}
+      <LineChart
+        coinHistory={coinHistory}
+        currentPrice={millify(cryptoDetails.price)}
+        coinName={cryptoDetails.name}
+      />
       <Col className="stats-container">
         <Col className="coin-value-statistics-heading">
           <Title level={3} className="coin-details-heading">
@@ -172,8 +184,8 @@ const CryptoDetails = () => {
           <Title level={3} className="coin-details-heading">
             {cryptoDetails.name} Links
           </Title>
-          {cryptoDetails.links.map((link) => (
-            <Row className="coin-link" key={link.name}>
+          {cryptoDetails.links.map((link, key) => (
+            <Row className="coin-link" key={key}>
               <Title level={5} className="link-name">
                 {link.type}
               </Title>
