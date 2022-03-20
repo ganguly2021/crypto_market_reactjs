@@ -1,3 +1,9 @@
+![alt text](https://screens1017.s3.ap-south-1.amazonaws.com/crypto_market/01.png)
+
+![alt text](https://screens1017.s3.ap-south-1.amazonaws.com/crypto_market/02.png)
+
+![alt text](https://screens1017.s3.ap-south-1.amazonaws.com/crypto_market/04.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
