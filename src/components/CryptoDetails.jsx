@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Typography, Select } from "antd";
 import { LineChart } from "./../components";
+import { Loader } from "./../components";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -38,7 +39,7 @@ const CryptoDetails = () => {
 
   // if api is still fetching
   if (isFetching) {
-    return "Loading...";
+    return <Loader />;
   }
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
